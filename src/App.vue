@@ -42,5 +42,8 @@ export default {
 
 body {
   font-family: "Montserrat Regular";
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(./assets/img/background.jpg);
 }
 </style>

@@ -8,8 +8,7 @@
 
     <nav>
       <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/agents">Agents</router-link></li>
+        <li><router-link to="/">Agents</router-link></li>
         <li><router-link to="/weapons">Weapons</router-link></li>
       </ul>
     </nav>

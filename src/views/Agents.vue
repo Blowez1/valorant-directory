@@ -54,7 +54,7 @@ export default {
       swiperOption: {
         slidesPerView: 4,
         spaceBetween: 150,
-        speed : 500,
+        speed: 500,
         autoplay: {
           delay: 3000,
           disableOnInteraction: false,
@@ -66,7 +66,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url(//db.onlinewebfonts.com/c/7e389c5e310dc537b083e0e25ea6eab5?family=Druk+Wide+Medium);
+@font-face {
+  font-family: "Druk Wide Medium";
+  src: url("../assets/fonts/7e389c5e310dc537b083e0e25ea6eab5.ttf") format("truetype"); /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+}
+
 @import url(https://unpkg.com/swiper@7/swiper-bundle.min.css);
 
 #app {

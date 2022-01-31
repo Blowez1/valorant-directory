@@ -19,8 +19,6 @@ const store = new Vuex.Store({
         .then(res => res.data.data)
 
         commit('SET_AGENTS', req)
-
-        console.log(req)
     },
   },
   mutations: {

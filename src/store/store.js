@@ -11,23 +11,50 @@ const store = new Vuex.Store({
     agent: {},
     agents: [],
     weapons: [],
+    menu: false,
   },
   actions: {
-    async getAgents({commit}) {
-        const req = await axios.get(`${API_URL}/agents?isPlayableCharacter=true`)
+    async getAgents({
+      commit
+    }) {
+      const req = await axios.get(`${API_URL}/agents?isPlayableCharacter=true`)
         .catch(err => console.log(err))
         .then(res => res.data.data)
 
-        commit('SET_AGENTS', req)
+      commit('SET_AGENTS', req)
     },
+    toggleMenu({
+      commit,
+      state
+    }) {
+
+      if (state.menu) {
+        commit('TOGGLE_MENU', {
+          toggle: false
+        })
+      } else {
+        commit('TOGGLE_MENU', {
+          toggle: true
+        })
+      }
+
+    }
   },
   mutations: {
     SET_AGENTS(state, payload) {
       state.agents = payload
+    },
+    TOGGLE_MENU(state, payload) {
+      state.menu = payload.toggle
     }
   },
   getters: {
     getAgents: state => state.agents,
+    checkToggle(state) {
+      if (state.menu) {
+        return "active"
+      }
+    }
   }
 })
 

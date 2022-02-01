@@ -55,15 +55,14 @@ export default {
         slidesPerView: 4,
         spaceBetween: 150,
         autoplay: {
-          delay: 111500,
+          delay: 3500,
           disableOnInteraction: false,
         },
         modules: [Autoplay],
         breakpoints: {
           320: {
             slidesPerView: 1,
-            spaceBetween: 55,
-            centeredSlides: true,
+            spaceBetween: 55
           },
           768: {
             slidesPerView: 2,

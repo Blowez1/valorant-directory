@@ -36,7 +36,7 @@
 <script>
 import { mapState } from "vuex";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-
+import { Autoplay } from "swiper";
 export default {
   name: "Agents",
   mounted() {
@@ -54,10 +54,29 @@ export default {
       swiperOption: {
         slidesPerView: 4,
         spaceBetween: 150,
-        speed: 500,
         autoplay: {
-          delay: 3000,
+          delay: 111500,
           disableOnInteraction: false,
+        },
+        modules: [Autoplay],
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 55,
+            centeredSlides: true,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 60,
+          },
+          1440: {
+            slidesPerView: 4,
+            spaceBetween: 150,
+          },
         },
       },
     };
@@ -68,7 +87,8 @@ export default {
 <style lang="scss" scoped>
 @font-face {
   font-family: "Druk Wide Medium";
-  src: url("../assets/fonts/7e389c5e310dc537b083e0e25ea6eab5.ttf") format("truetype"); /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  src: url("../assets/fonts/7e389c5e310dc537b083e0e25ea6eab5.ttf")
+    format("truetype"); /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
 }
 
 @import url(https://unpkg.com/swiper@7/swiper-bundle.min.css);
@@ -85,8 +105,8 @@ main {
   width: 100%;
   height: 100%;
   position: relative;
-  overflow-x: hidden;
   padding: 120px 0 119px 0;
+  overflow-x: hidden;
 }
 
 .container {
@@ -232,6 +252,49 @@ main {
         }
       }
     }
+  }
+}
+
+
+@media screen and (max-width: 992px) {
+  main {
+    padding: 100px 0;
+    position: relative;
+    min-height: calc(100vh - 65px);
+  }
+
+  .agents {
+    margin-left: 0px;
+    position: relative;
+    padding: 20px 45px;
+  }
+
+  .agents-side {
+    width: 100vw;
+    position: relative;
+    margin-top: 50px;
+
+
+    &::before {
+      content: "Agents";
+      font-size: 50px;
+      position: absolute;
+      top: -95px;
+      left: 50%;
+      font-family: "Druk Wide Medium";
+      color: #fff;
+      transform: rotate(0deg) translateX(-50%);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      -webkit-text-fill-color: rgba(0, 0, 0, 0);
+      -webkit-text-stroke: 1px #fff;
+    }
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
   }
 }
 </style>

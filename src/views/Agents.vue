@@ -7,7 +7,7 @@
             <div class="agent">
               <div class="agent-body">
                 <div class="agent-image">
-                  <img :src="agent.fullPortrait" :alt="agent.displayName" />
+                  <img v-lazy="agent.fullPortrait" :alt="agent.displayName" />
                 </div>
                 <div class="agent-info">
                   <div class="agent-role">{{ agent.role.displayName }}</div>
@@ -62,7 +62,7 @@ export default {
         breakpoints: {
           320: {
             slidesPerView: 1,
-            spaceBetween: 55
+            spaceBetween: 55,
           },
           768: {
             slidesPerView: 2,
@@ -157,6 +157,14 @@ main {
           top: 50%;
           left: 30%;
           transform: translate(-40%, -33%);
+
+          &[lazy="loading"] {
+            
+            left: 50%;
+            top: 50%;
+            width: auto;
+            transform: translate(-50%, -50%);
+          }
         }
       }
 
@@ -254,7 +262,6 @@ main {
   }
 }
 
-
 @media screen and (max-width: 992px) {
   main {
     padding: 100px 0;
@@ -272,7 +279,6 @@ main {
     width: 100vw;
     position: relative;
     margin-top: 50px;
-
 
     &::before {
       content: "Agents";
